@@ -25,7 +25,7 @@ pipeline {
                     git credentialsId: 'github_credential', url: 'https://github.com/borjaOrtizLlamas/shop_infraestucture_generator_vars.git'
                 }
                 sh "export TF_LOG=DEBUG && sed '1,35 s/CONTAINER_API_VAR_REPLACE/${variablesDef}/g' ecs-change > ECS.tf"
-                sh "terraform init && terraform plan -var-file=\"envs/variables_develop.tfvars\""
+                sh "terraform init && terraform apply -var-file=\"envs/variables_develop.tfvars\""
                 sh "aws ecs update-service --cluster WorkshopCluster --service worpress_workshop_service --task-definition WordPress"
             }
         }
