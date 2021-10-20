@@ -1,0 +1,30 @@
+.single-post-author {
+    margin: rem(53px 0 60px);
+    padding: rem(30px 30px 25px);
+    background: rgba(#000, .1);
+
+    .author-info-avatar {
+        display: inline-block;
+        vertical-align: top;
+        @include border-radius(999px);
+        overflow: hidden;
+        margin-#{$right}: rem(25px);
+        margin-bottom: rem(20px);
+    }
+
+    .author-info-content {
+        float: #{$right};
+        width: calc(100% - 100px);
+        @media (max-width: $screen-sm) {
+            width: 100%;
+        }
+
+        .entry-title {
+            margin-bottom: rem(3px);
+        }
+
+        .entry-bio {
+            margin-bottom: rem(10px);
+        }
+    }
+}

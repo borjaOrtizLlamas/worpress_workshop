@@ -1,0 +1,138 @@
+.wolfo-site-nav {
+    .mainnav {
+        @extend %mg-minus-15;
+        list-style-type: none;
+        padding: 0;
+        margin-bottom: 0;
+
+        > .menu-item {
+            @extend %pd-plus-15;
+            display: inline-block;
+
+            > a {
+                font-family: $heading_font;
+                font-size: rem(16px);
+                font-weight: $fw_600;
+                color: $heading_color;
+            }
+        }
+
+        li {
+            line-height: 1.5;
+            position: relative;
+
+            a {
+                &:hover {
+                    color: $hover_color;
+                }
+            }
+        }
+    }
+
+    .menu-item-has-children {
+        > a {
+            @extend %flex-item-center;
+            padding-right: rem(25px);
+            position: relative;
+
+            &:after {
+                content: '\ea48';
+                @extend %flex-item-center;
+                font-family: $icon_font;
+                font-size: rem(18px);
+                line-height: 1;
+                @include position(absolute, 3px, 0);
+                @include transition(all .5s, color 0s ease-in-out);
+            }
+        }
+
+        &.focus,
+        &:hover {
+            > .sub-menu {
+                @extend %text-opacity-show;
+                @include transform(rotateX(0deg));
+                @include transition(all .5s ease 0s);
+            }
+        }
+    }
+
+    .sub-menu {
+        @extend %text-opacity-hiden;
+        display: block !important;
+        min-width: 260px;
+        padding: rem(25px);
+        background: $light_scheme;
+        list-style-type: none;
+        @include border-radius(3px);
+        @include box-shadow(0px 5px 20px 0 rgba(#000, 0.1));
+        @include position(absolute, 100%, null, null, 0, 1);
+        @include transform(rotateX(90deg));
+        @include transform-origin(center top 0);
+        @include transition(all .2s ease 0s);
+
+        &.wolfo-open-right {
+            top: 100% !important;
+            left: -100% !important;
+
+            li {
+                .sub-menu {
+                    right: 100%;
+                    top: 100% !important;
+                    left: auto !important;
+                }
+            }
+        }
+
+        li {
+            &:not(:last-child) {
+                margin-bottom: rem(15px);
+            }
+
+            &.menu-item-has-children {
+                > a {
+                    padding-right: rem(21px);
+
+                    &:after {
+                        content: '\e9c4';
+                        top: 2px;
+                        font-size: rem(16px);
+                        @include transition(all .4s);
+                    }
+                }
+
+                &:hover {
+                    > a:after {
+                        content: '\eb23';
+                    }
+                }
+            }
+        }
+
+        a {
+            @extend %flex-item-center;
+            color: $body_color;
+        }
+
+        .sub-menu {
+            left: 100%;
+            top: 0;
+            margin-left: rem(25px);
+        }
+    }
+}
+
+@media (min-width: 1025px) and (max-width: $screen-xl) {
+    .wolfo-site-nav {
+        .sub-menu {
+            display: none !important;
+        }
+
+        .menu-item-has-children {
+            &:hover {
+                > .sub-menu {
+                    display: block !important;
+                }
+            }
+        }
+    }
+}

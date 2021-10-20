@@ -1,0 +1,113 @@
+.header-1 {
+    .main-header {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    .header-center {
+        justify-content: center;
+
+        .icon-menu {
+            display: none;
+        }
+    }
+
+    .header-right {
+        position: unset;
+        justify-content: flex-end;
+
+        > div:not(:last-child) {
+            margin-right: rem(15px);
+        }
+
+        @media (min-width: 62em) {
+            .icon-menu {
+                display: none;
+            }
+        }
+
+        .bh-user {
+            display: inline-flex;
+
+            .account-content {
+                right: 0;
+            }
+
+            &:hover {
+                .account-icon {
+                    color: $hover_color;
+                }
+
+                .account-content {
+                    @extend %text-opacity-show;
+                    @include transform(rotateX(0deg));
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 64em) {
+    .header-1 {
+        .header-center {
+            display: none!important;
+        }
+
+        .wolfo-site-nav {
+            display: none;
+
+            &.wolfo-canvas-menu {
+                display: block;
+            }
+        }
+
+        .header-right {
+            .icon-menu {
+                display: inline;
+                margin-right: 9px;
+
+                &:focus {
+                    span {
+                        background: $hover_color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 62em) and (max-width: 64em) {
+    .header-1 {
+        .header-left {
+            @include flex(50%);
+        }
+
+        .header-right {
+            @include flex(50%);
+        }
+    }
+}
+
+@media (max-width: $screen-sm) {
+    .header-1 {
+        .wolfo-site-logo img {
+            max-width: var(--max-width-sm) !important;
+        }
+    }
+}
+
+@media screen and (max-width: 30em) {
+    .header-1 {
+        .header-right {
+            > div:not(:last-child) {
+                margin-right: rem(10px);
+            }
+
+            .icon-menu {
+                span:first-child {
+                    width: 28px;
+                }
+            }
+        }
+    }
+}

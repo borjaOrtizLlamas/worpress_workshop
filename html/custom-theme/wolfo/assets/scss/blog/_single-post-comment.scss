@@ -1,0 +1,154 @@
+.single-post-comment {
+    margin-top: rem(40px);
+
+    .comments-area {
+        .comment-title {
+            padding-top: 0;
+            margin-bottom: 0;
+        }
+    }
+
+    //== Comment content
+    .comment-content {
+        .comment-list {
+            margin: rem(0 0 40px);
+            padding-#{$left}: 0;
+            margin-bottom: 0;
+            //== li.comment
+            .comment {
+                &-body {
+                    display: flex;
+                    margin: rem(30px 0);
+                    line-height: 1.857;
+
+                    & + .comment-respond {
+                        margin-bottom: rem(30px);
+                    }
+                }
+
+                img.avatar {
+                    display: inline-block;
+                    vertical-align: top;
+                    width: 60px;
+                    height: 60px;
+                    @include flex(60px);
+                    @include border-radius(999px);
+                    overflow: hidden;
+                    margin-#{$right}: rem(20px);
+
+                    & + .comment-detail {
+                        width: calc(100% - 80px);
+                    }
+                }
+
+                ul {
+                    margin-bottom: rem(15px);
+                }
+
+                &-detail {
+                    display: block;
+                    width: 100%;
+
+                    .comment-text {
+                        margin-bottom: rem(15px);
+
+                        > p {
+                            margin-bottom: 0;
+
+                            &:not(:last-child) {
+                                margin-bottom: rem(15px);
+                            }
+                        }
+                    }
+                }
+
+                &-meta {
+                    display: block;
+                    margin-bottom: 7px;
+                }
+
+                &-author-name {
+                    padding-top: 0;
+                    margin-bottom: rem(2px);
+                }
+
+                &-date-time {
+                    font-size: rem(12px);
+                    color: $disable_color;
+                }
+
+                &-reply-edit {
+                    @extend %flex-item-center;
+                    font-size: 0;
+
+                    > a {
+                        @extend %flex-item-center;
+                        justify-content: center;
+                        height: 25px;
+                        padding: 1px 10px;
+                        background: $primary_color;
+                        font-family: $heading_font;
+                        font-weight: $fw_bold;
+                        font-size: rem(13px);
+                        color: $light_color;
+
+                        &:not(:last-child) {
+                            margin-#{$right}: rem(7px);
+                        }
+
+                        &:hover {
+                            background: $hover_color;
+                        }
+                    }
+                }
+            }
+
+            //== ol.children
+            .children {
+                list-style-type: none;
+                margin-top: 0;
+                padding-bottom: 0;
+                margin-#{$left}: rem(80px);
+                border-top: 1px solid $border-color;
+
+                @media (max-width: $screen-lg) {
+                    .children {
+                        margin-#{$left}: rem(50px);
+                    }
+                }
+                @media (max-width: $screen-md) {
+                    margin-#{$left}: rem(50px);
+                    .children {
+                        margin-#{$left}: rem(30px);
+                    }
+                }
+                @media (max-width: $screen-sm) {
+                    margin-#{$left}: rem(20px);
+                    .children {
+                        margin-#{$left}: rem(10px);
+                    }
+                }
+            }
+        }
+    }
+
+    //== Comment respond
+    .comment-respond {
+        margin: rem(10px 0 0);
+
+        .comment-reply-title {
+            margin-top: 0;
+            margin-bottom: rem(13px);
+        }
+
+        .comment-form {
+            .logged-in-as {
+                display: block;
+            }
+
+            .comment-notes {
+                display: block;
+            }
+        }
+    }
+}

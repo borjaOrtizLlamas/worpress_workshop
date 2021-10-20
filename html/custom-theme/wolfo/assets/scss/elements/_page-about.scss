@@ -1,0 +1,36 @@
+.wolfo-about-contact-form {
+    .row {
+        margin-left: -10px;
+        margin-right: -10px;
+    }
+
+    .col-12 {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    label {
+        margin-bottom: rem(5px);
+        font-size: rem(12px);
+        font-family: $heading_font;
+        font-weight: normal;
+        text-transform: uppercase;
+    }
+
+    .column {
+        margin-bottom: rem(25px);
+
+        input {
+            background: #f9f9f9;
+            border-color: #f9f9f9;
+        }
+    }
+
+    input[type="submit"] {
+        min-width: rem(195px);
+        min-height: rem(50px);
+        font-size: rem(15px);
+        font-family: $heading_font;
+        font-weight: normal;
+    }
+}

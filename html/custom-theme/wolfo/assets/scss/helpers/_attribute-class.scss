@@ -1,0 +1,264 @@
+$num: 5;
+@for $i from 0 through 10 {
+    //== margin
+    .ma-#{$i * $num} {
+        margin: #{$i * $num}px !important;
+    }
+    .mt-#{$i * $num} {
+        margin-top: #{$i * $num}px !important;
+    }
+    .mr-#{$i * $num} {
+        margin-right: #{$i * $num}px !important;
+    }
+    .mb-#{$i * $num} {
+        margin-bottom: #{$i * $num}px !important;
+    }
+    .ml-#{$i * $num} {
+        margin-left: #{$i * $num}px !important;
+    }
+    //== padding
+    .pa-#{$i * $num} {
+        padding: #{$i * $num}px !important;
+    }
+    .pt-#{$i * $num} {
+        padding-top: #{$i * $num}px !important;
+    }
+    .pr-#{$i * $num} {
+        padding-right: #{$i * $num}px !important;
+    }
+    .pb-#{$i * $num} {
+        padding-bottom: #{$i * $num}px !important;
+    }
+    .pl-#{$i * $num} {
+        padding-left: #{$i * $num}px !important;
+    }
+    plr-#{$i * $num} {
+        padding-left: #{$i * $num}px !important;
+        padding-right: #{$i * $num}px !important;
+    }
+}
+
+.list-style-type {
+    list-style-type: none;
+}
+
+.clear {
+    float: none;
+    clear: both;
+}
+
+.f-left {
+    float: left;
+}
+
+.f-right {
+    float: right;
+}
+
+.f-none {
+    float: none;
+}
+
+.hide {
+    display: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.hiden {
+    display: none;
+}
+
+.show {
+    display: inline-block;
+}
+
+.pd-col-0 {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.flex-x {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.align-center {
+    justify-content: center;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.relative {
+    position: relative !important;
+}
+
+.txt-left {
+    text-align: left;
+}
+
+.txt-center {
+    text-align: center;
+}
+
+.txt-right {
+    text-align: right;
+}
+
+.center {
+    text-align: center;
+}
+
+.skin-transparent {
+    background: transparent;
+}
+
+.skin-grey {
+    background: $gray_scheme;
+}
+
+.skin-white {
+    background: $light_scheme;
+}
+
+.white-color {
+    color: $light_color;
+
+    a {
+        color: $light_color;
+    }
+}
+
+.primary-color {
+    color: $primary_color;
+
+    a {
+        color: $primary_color;
+    }
+}
+
+.enable-border {
+    border: 1px solid $border_color;
+}
+
+.z-minus-1 {
+    position: relative;
+    z-index: -1;
+}
+
+.z-plus-99 {
+    position: relative;
+    z-index: 99;
+}
+
+.z-plus-1 {
+    position: relative;
+    z-index: 1;
+}
+
+.flex-center {
+    justify-content: center;
+
+    .widget {
+        justify-content: center;
+    }
+}
+
+.box-shadow {
+    box-shadow: 0px 2px 5px 0 rgba($body_color, 0.1);
+}
+
+.minus-top-80 {
+    margin-top: -80px;
+    position: relative;
+    z-index: 3;
+}
+
+.fz-14 {
+    h1, h2, h3, h4, h5, h6 {
+        font-size: rem(14px);
+    }
+}
+
+.flr-768-991 {
+    @media (min-width: 48em) and (max-width: $screen-lg) {
+        justify-content: flex-end;
+        .content-data-time {
+            justify-content: flex-end;
+        }
+    }
+}
+
+.txt-md-center {
+    @media (max-width: $screen-md) {
+        text-align: center !important;
+    }
+}
+
+.width-100 {
+    width: 100%;
+
+    a {
+        width: 100%;
+    }
+}
+
+.custom-btn-100 {
+    .wolfo-button-sc {
+        margin-bottom: rem(30px);
+
+        &.center {
+            a {
+                justify-content: center;
+            }
+        }
+
+        .wolfo-button-sc {
+            margin-bottom: 0;
+        }
+
+        .wolfo-button {
+            width: 100%;
+        }
+    }
+}
+
+@for $i from 0 through 5 {
+    .fs-42-h#{$i + 1} {
+        h#{$i + 1} {
+            font-size: rem(42px);
+            @media (max-width: $screen-xl) {
+                font-size: rem(39px);
+            }
+            @media (max-width: $screen-lg) {
+                font-size: rem(36px);
+            }
+            @media (max-width: $screen-md) {
+                font-size: rem(33px);
+            }
+            @media (max-width: $screen-sm) {
+                font-size: rem(30px);
+            }
+        }
+    }
+}
+
+//== Bingo Column Custom
+.b-20 {
+    @include flex(20%);
+}
+
+.b-30 {
+    @include flex(30%);
+}
+
+.flex-sm-x {
+    @media (min-width: 36em) { //== 576px
+        display: flex;
+        flex-flow: row wrap;
+    }
+}

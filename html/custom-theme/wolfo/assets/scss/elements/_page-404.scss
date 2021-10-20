@@ -1,0 +1,56 @@
+.error404{
+    .page-title-wrapper {
+        .page-title-content {
+            display: none;
+        }
+    }
+    .main-content{
+        padding-top: 8.177083vw;
+        padding-bottom: 7.2916667vw;
+        @media (max-width: $screen-md) {
+            padding-top: rem(62px);
+            padding-bottom: rem(55px);
+        }
+    }
+}
+
+.wolfo-error{
+    &-left{
+        @media (max-width: $screen-md) {
+            margin-bottom: rem(30px);
+        }
+    }
+    &-right{
+        display: block;
+        width: 100%;
+    }
+    &-title{
+        @media (min-width: 75em) {
+            font-size: rem(32px);
+            margin-bottom: rem(24px);
+        }
+    }
+    &-description{
+        margin-bottom: rem(30px);
+    }
+    .row{
+        > div{
+            display: flex;
+            align-items: center;
+        }
+    }
+    form{
+        position: relative;
+        .bas-input{
+            padding-right: rem(40px);
+        }
+        .ajax-btn{
+            display: inline-block;
+            padding: rem(0 15px);
+            background: none;
+            font-size: rem(18px);
+            color: $primary_color;
+            @include position(absolute, 0, 0, 0);
+        }
+    }
+}

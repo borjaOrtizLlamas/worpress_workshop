@@ -1,0 +1,29 @@
+data "aws_iam_role" "ecs_task_execution_role" {
+  name = "ecsTaskExecutionRole"
+}
+
+resource "aws_ecs_task_definition" "APIRestSmallCompany" {
+    family = "WordPress"
+    container_definitions = <<TASK_DEFINITION
+    [{
+        "portMappings": [{
+            "hostPort": 8080,
+            "protocol": "tcp",
+            "containerPort": 8080
+        },{
+            "hostPort": 80,
+            "protocol": "tcp",
+            "containerPort": 80
+        }],
+        "image": "015955254045.dkr.ecr.eu-west-1.amazonaws.com/wordpress_official_image_copy:CONTAINER_API_VAR_REPLACE",
+        "essential": true,
+        "name": "wordpress_official_image_task",
+        "cpu": 0
+    }]
+    TASK_DEFINITION
+    requires_compatibilities = ["FARGATE"]
+    memory = 1024
+    cpu = 512
+    network_mode= "awsvpc"
+    execution_role_arn = "${data.aws_iam_role.ecs_task_execution_role.arn}"
+}

@@ -1,0 +1,106 @@
+.header-nav {
+    &.enable-sticky {
+        @include position(sticky, 0, 0, null, 0);
+        @include transition(all .3s ease 0s);
+
+        &.is-sticky {
+            position: fixed;
+            z-index: 999;
+
+            &:not(.hide-scroll) {
+                .main-header {
+                    padding-top: rem(18px) !important;
+                    padding-bottom: rem(18px) !important;
+                }
+
+                .wolfo-site-logo img {
+                    max-width: 100px;
+                }
+            }
+        }
+    }
+}
+
+.header-sticky-separated {
+    background: $light_scheme;
+
+    &.enable-sticky {
+        @extend %text-opacity-hiden;
+        position: fixed;
+        top: -100%;
+
+        &.is-sticky {
+            @extend %text-opacity-show;
+            top: 0;
+            @include transition(all .5s ease 0s);
+        }
+    }
+
+    .main-header {
+        padding-top: rem(30px) !important;
+        padding-bottom: rem(30px) !important;
+        @include transition(all .4s);
+    }
+
+    .icon-menu {
+        display: none;
+    }
+
+    .header-center {
+        justify-content: center;
+    }
+
+    .header-right {
+        justify-content: flex-end;
+
+        > div:not(:last-child) {
+            margin-right: rem(15px);
+        }
+    }
+}
+
+@media (max-width: 64em) {
+    .header-sticky-separated {
+        .header-center {
+            display: none !important;
+        }
+
+        .header-right {
+            .icon-menu {
+                display: inline;
+            }
+        }
+    }
+}
+
+@media (min-width: 62em) and (max-width: 64em) {
+    .header-sticky-separated {
+        .header-left {
+            @include flex(50%);
+        }
+
+        .header-right {
+            @include flex(50%);
+        }
+    }
+}
+
+@media screen and (max-width: 30em) {
+    .header-sticky-separated {
+        .wolfo-site-logo img {
+            max-width: 25vw;
+        }
+
+        .header-right {
+            > div:not(:last-child) {
+                margin-right: rem(10px);
+            }
+
+            .icon-menu {
+                span:first-child {
+                    width: 28px;
+                }
+            }
+        }
+    }
+}

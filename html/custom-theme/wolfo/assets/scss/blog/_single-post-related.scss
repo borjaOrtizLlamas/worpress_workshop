@@ -1,0 +1,85 @@
+.single-post-related {
+    margin-top: rem(65px);
+
+    .heading-title {
+        margin-bottom: rem(35px);
+    }
+
+    .wolfo-slick {
+        .slick-slide {
+            @extend %flex;
+            background: $gray_scheme;
+            position: relative;
+
+            > div {
+                @extend %flex;
+                @include flex(100%);
+            }
+        }
+
+        .column {
+            @extend %flex;
+            height: 100%;
+        }
+    }
+
+    .post {
+        @extend %flex;
+        height: 100%;
+        min-height: rem(410px);
+        -webkit-background-size: cover;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center top;
+
+        @media (max-width: $screen-xl) {
+            min-height: rem(390px);
+        }
+        @media (max-width: $screen-lg) {
+            min-height: rem(370px);
+        }
+        @media (max-width: $screen-md) {
+            min-height: rem(350px);
+        }
+        @media (max-width: $screen-sm) {
+            min-height: rem(330px);
+        }
+
+        &:before {
+            content: '';
+            background: linear-gradient(to bottom, rgba(#000, 0), rgba(#000, .3) 100%);
+            @include position(absolute, 0, 0, 0, 0);
+        }
+
+        &-content {
+            padding: rem(0 30px 30px);
+            @include position(absolute, null, 0, 0, 0);
+
+            .post-date-author {
+                color: $light_color;
+
+                .post-meta-date {
+                    color: $light_color;
+
+                    p {
+                        color: $light_color;
+                    }
+                }
+
+                a {
+                    color: $light_color;
+                }
+            }
+
+            .entry-title {
+                a {
+                    color: $light_color;
+                }
+            }
+
+            .wolfo-button {
+                margin-top: rem(25px);
+            }
+        }
+    }
+}

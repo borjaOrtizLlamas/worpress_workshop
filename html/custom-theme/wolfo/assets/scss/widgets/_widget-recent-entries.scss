@@ -1,0 +1,20 @@
+//== Widget recent post
+.widget_recent_entries {
+    li {
+        a {
+            font-family: $heading_font;
+            font-weight: $fw_bold;
+            color: $heading_color;
+            line-height: normal;
+
+            &:hover {
+                color: $hover_color;
+            }
+        }
+
+        .post-date {
+            display: block;
+            color: $disable_color;
+        }
+    }
+}

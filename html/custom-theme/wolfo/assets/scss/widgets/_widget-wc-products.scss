@@ -1,0 +1,9 @@
+.widget_products{
+    li{
+        .product-title{
+            display: inline-block;
+            vertical-align: top;
+            width: calc(100% - 65px);
+        }
+    }
+}

@@ -1,0 +1,131 @@
+.page-title {
+    @media (max-width: $screen-xl) {
+        padding-top: var(--pdt-xl) !important;
+        padding-bottom: var(--pdb-xl) !important;
+    }
+
+    &.txt-center {
+        .content-wrapper {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .breadcrumbs-wrapper {
+            .breadcrumbs {
+                justify-content: center;
+            }
+        }
+    }
+
+    &.layout-top-breadcrumb {
+        .content-wrapper {
+            .breadcrumbs-wrapper {
+                margin-bottom: rem(10px);
+            }
+        }
+    }
+
+    &.layout-bottom-breadcrumb {
+        .content-wrapper {
+            .breadcrumbs-wrapper {
+                @include order(2);
+            }
+
+            .page-title-wrapper {
+                @include order(1);
+                margin-bottom: rem(12px);
+
+                .entry-page-title {
+                    & + .entry-description {
+                        margin-top: rem(10px);
+                    }
+                }
+            }
+        }
+    }
+
+    .content-wrapper {
+        @extend %flex;
+        @include flex(50%);
+        @media (max-width: $screen-lg) {
+            @include flex(100%);
+        }
+
+        .breadcrumbs-wrapper {
+            @include flex(100%);
+        }
+
+        .page-title-wrapper {
+            @include flex(100%);
+        }
+    }
+
+    .breadcrumbs-wrapper {
+        display: block;
+
+        .breadcrumbs {
+            padding: 0;
+            margin-bottom: 0;
+            @extend %flex-item-center;
+
+            li {
+                display: inline-flex;
+                align-items: center;
+                position: relative;
+                line-height: 1.857;
+                margin-bottom: 0;
+
+                &:not(:last-child) {
+                    padding-right: 18px;
+                    margin-right: 5px;
+
+                    &:after {
+                        content: '\ea4a';
+                        font-family: $icon_font;
+                        display: flex;
+                        justify-content: center;
+                        flex-direction: column;
+                        height: 100%;
+                        @include position(absolute, 1px, 0);
+                    }
+                }
+
+                a {
+                    display: inline-flex;
+                    color: $body_color;
+
+                    i {
+                        margin-right: 5px;
+                    }
+                }
+
+                span {
+                    display: inline-flex;
+                    opacity: .7;
+                    font-size: rem(14px);
+                }
+
+                &:hover {
+                    a {
+                        color: $hover_color;
+                    }
+                }
+            }
+        }
+    }
+
+    .page-title-wrapper {
+        .entry-page-title {
+            margin-top: 0;
+            margin-bottom: 0;
+
+            & + .entry-description {
+                margin-top: rem(8px);
+            }
+        }
+
+        .entry-description {
+            margin-bottom: 0;
+        }
+    }
+}

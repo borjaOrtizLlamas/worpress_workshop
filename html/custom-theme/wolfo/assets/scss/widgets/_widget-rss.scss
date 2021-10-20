@@ -1,0 +1,33 @@
+.widget_rss {
+    color: $disable_color;
+
+    li {
+        &:not(:last-child) {
+            padding-bottom: rem(15px);
+            margin-bottom: rem(15px);
+            border-bottom: 1px solid $border_color;
+        }
+
+        .rsswidget {
+            display: block;
+            flex: 1;
+            line-height: 1.7143;
+            margin-bottom: 5px;
+        }
+
+        .rss-date {
+            display: inline-flex;
+            margin-bottom: rem(5px);
+        }
+
+        .rssSummary {
+            line-height: 1.7143;
+            margin-bottom: rem(5px);
+        }
+
+        cite {
+            font-weight: 500;
+            color: $heading_color;
+        }
+    }
+}

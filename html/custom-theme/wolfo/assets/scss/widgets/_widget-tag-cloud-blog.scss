@@ -1,0 +1,27 @@
+.widget_tag_cloud {
+    .tagcloud {
+        font-size: 0;
+
+        a {
+            display: inline-flex;
+            align-items: center;
+            line-height: 1;
+            font-size: rem(14px)!important;
+            min-height: rem(30px);
+            margin-bottom: rem(7px);
+            padding: rem(5px 15px);
+            background: #303030;
+            color: $light_color;
+            @include border-radius(3px);
+
+            &:not(:last-child) {
+                margin-right: rem(7px);
+            }
+
+            &:hover {
+                color: $light_color;
+                background: $hover_color;
+            }
+        }
+    }
+}

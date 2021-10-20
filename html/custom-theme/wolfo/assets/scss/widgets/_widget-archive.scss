@@ -1,0 +1,18 @@
+//== has layout list + dropdown
+.widget_archive {
+    //== [ List ]
+    li {
+        text-align: $right;
+
+        &:after {
+            content: '';
+            clear: both;
+            display: block;
+        }
+
+        a {
+            float: #{$left};
+            color: $body_color;
+        }
+    }
+}

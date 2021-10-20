@@ -1,0 +1,131 @@
+.main-sidebar {
+    @extend %pd-plus-15;
+    flex: 1;
+}
+
+.content-layout {
+    width: 100%;
+    @extend %pd-plus-15;
+}
+
+.has-sidebar {
+    .content-layout {
+        -webkit-box-flex: 0;
+        flex: 0 0 75%;
+    }
+
+    .main-sidebar {
+        -webkit-box-flex: 0;
+        flex: 0 0 25%;
+    }
+}
+
+.content-page-wapper {
+    .has-sidebar {
+        .main-sidebar {
+            flex: 1;
+        }
+
+        .inner-content-page {
+            width: 100%;
+            flex: 0 auto;
+            @extend %pd-plus-15;
+        }
+    }
+}
+
+// =============================================================================
+// Max Width
+// =============================================================================
+@media (max-width: $screen-xl) { //== 1199px
+    .has-sidebar {
+        &.has-biger {
+            &.left {
+                .content-sidebar {
+                    padding-right: rem(30px);
+                }
+            }
+
+            &.right {
+                .content-sidebar {
+                    padding-left: rem(30px);
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 62em) and (max-width: $screen-xl) { //== 992px - 1199px
+    .has-sidebar {
+        .main-sidebar {
+            @include flex(300px !important);
+        }
+
+        .content-layout {
+            @include flex(calc(100% - 300px) !important);
+        }
+    }
+}
+
+
+@media (max-width: 64em) { //== 1024px
+    .main-sidebar {
+        .content-sidebar {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+    }
+}
+
+@media (max-width: $screen-lg) { //== 991px
+    .has-sidebar {
+        .content-layout {
+            @include flex(100% !important);
+
+            & + .main-sidebar {
+                margin-top: rem(40px);
+            }
+        }
+
+        .main-sidebar {
+            @include flex(100% !important);
+        }
+    }
+
+    .content-page-wapper {
+        .inner-content-page {
+            @include flex(100% !important);
+        }
+    }
+}
+
+@media (max-width: $screen-md) { //== 767px
+    .has-sidebar {
+        .content-layout {
+
+            & + .main-sidebar {
+                margin-top: rem(35px);
+            }
+        }
+    }
+}
+
+
+// =============================================================================
+// Min Width
+// =========================================================================
+@media (min-width: 62em) { //== 992px
+    .has-sidebar {
+        &.left {
+            .content-page-wapper & {
+                .inner-content-page {
+                    @include order(2);
+                }
+            }
+
+            .content-layout {
+                @include order(2);
+            }
+        }
+    }
+}

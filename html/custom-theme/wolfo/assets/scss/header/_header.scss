@@ -1,0 +1,126 @@
+@import "search";
+@import "mainnav";
+@import "header-1";
+@import "header-mobile";
+@import "header-sticky";
+@import "canvas-menu";
+
+.header-nav {
+    position: relative;
+    @include transition(all .5s ease);
+
+    .main-header {
+        @include transition(all .5s ease);
+
+        .row {
+            > div {
+                @extend %flex-item-center;
+            }
+        }
+    }
+
+    &.enable-overlay {
+        @include position(absolute, 0, 0, null, 0);
+
+        .has-side & {
+            left: 15px;
+            right: 15px;
+        }
+    }
+
+    .wolfo-site-nav {
+        .mainnav {
+            > li > .sub-menu {
+                margin-top: rem(20px);
+
+                &:before {
+                    content: '';
+                    height: 20px;
+                    @include position(absolute, -20px, 0, null, 0);
+                }
+            }
+        }
+    }
+}
+
+.wolfo-site-logo {
+    img {
+        max-width: 120px;
+    }
+}
+
+.site-name {
+    margin: 0;
+    padding: 0;
+}
+
+.icon-menu {
+    cursor: pointer;
+}
+
+.header-nav {
+    position: relative;
+    z-index: 9;
+
+    li {
+        margin-bottom: 0;
+
+        > ul {
+            margin-top: 0;
+        }
+    }
+}
+
+.sticky-header {
+    @include position(sticky, 0, 0, null, 0, 9991);
+    background: $light_scheme;
+}
+
+.icon-menu {
+    &.is-active {
+        span {
+            width: 30px;
+
+            &:first-child {
+                @include animation(ease .7s icon-menu-top forwards);
+            }
+
+            &:nth-child(2) {
+                @include animation(ease .7s icon-menu-scaled forwards);
+            }
+
+            &:last-child {
+                width: 30px;
+                @include animation(ease .7s icon-menu-bottom forwards);
+            }
+        }
+    }
+
+    span {
+        display: block;
+        width: 30px;
+        height: 2px;
+        background: #000000;
+        position: relative;
+        @include transition(all .4s ease-in-out);
+
+        &:not(:last-child) {
+            margin-bottom: rem(5px);
+        }
+
+        &:nth-child(2) {
+            width: 20px;
+        }
+
+        &:last-child {
+            width: 10px;
+        }
+    }
+
+    &:hover {
+        span {
+            width: 30px;
+            background: $hover_color;
+        }
+    }
+}

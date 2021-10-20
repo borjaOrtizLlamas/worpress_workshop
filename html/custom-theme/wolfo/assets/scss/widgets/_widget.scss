@@ -1,0 +1,355 @@
+//== Blog
+@import "widget-archive";
+@import "widget-calendar";
+@import "widget-categories";
+@import "widget-recent-comments";
+@import "widget-recent-entries";
+@import "widget-rss";
+@import "widget-tag-cloud-blog";
+@import "widget-navigation-menu";
+//== Woocomerce
+@import "widget-wc-products";
+@import "widget-wc-products-tags-cloud";
+@import "widget-wc-rating-filter";
+@import "widget-wc-search-products";
+@import "widget-wc-shopping-cart";
+@import "widget-wc-products-categoris";
+
+[class*='bin-widget-'] {
+    .wolfo-widget-content-wrapper {
+        width: 100%;
+    }
+
+    .white-color {
+        .widget-title {
+            color: $light_color;
+        }
+
+        .wolfo-widget-content {
+            color: $light_color;
+
+            li {
+                color: $light_color;
+            }
+
+            a {
+                color: $light_color;
+            }
+        }
+    }
+
+    .enable-boxed {
+        .widget-title {
+            @extend %flex-item-center;
+        }
+    }
+
+    .widget-title {
+        @extend %flex-item-center;
+    }
+}
+
+.widget {
+    &:not(:last-child) {
+        margin-bottom: rem(40px);
+    }
+
+    &[class*='bin-widget-'] {
+        margin-bottom: 0;
+        border: none !important;
+        background: none;
+
+        ul {
+            .sub-menu {
+                display: none;
+            }
+
+            .children {
+                display: none;
+            }
+        }
+    }
+
+    &:not([class*='bin-widget-']) {
+        li.menu-item-has-children:before {
+            display: none;
+        }
+    }
+
+    //== { Dropdown ]
+    select {
+        padding: rem(11px 15px 10px);
+    }
+
+    .wolfoui-fancy-select {
+        display: block;
+        padding: rem(7px 0 7px 15px);
+        border: 1px solid $border_color;
+
+        .fs-trigger {
+            padding-right: rem(20px);
+            overflow: hidden;
+            -ms-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+
+            &:after {
+                top: 2px;
+                right: 8px;
+            }
+        }
+
+        ul.fs-options {
+            top: 50px;
+
+            &.fs-open {
+                top: 39px;
+                padding: 0;
+            }
+
+            li {
+                text-align: left;
+            }
+        }
+    }
+
+    //== Widget Title
+    &-title {
+        margin-top: 0;
+        margin-bottom: rem(25px);
+    }
+
+    ul {
+        margin-bottom: 0;
+        padding: 0;
+        list-style-type: none;
+
+        li > ul {
+            margin-left: rem(10px);
+        }
+    }
+
+    li {
+        position: relative;
+        line-height: 1.86;
+
+        &:not(:last-child) {
+            margin-bottom: rem(10px);
+        }
+
+        &:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        &.menu-item-has-children {
+            &:before {
+                content: '\ea4a';
+                font-family: $icon_font;
+                font-size: rem(20px);
+                color: $heading_color;
+                line-height: 1;
+                @include transition(all .4s);
+                @include position(absolute, 3px, 0);
+            }
+
+            .sub-menu {
+                margin-left: rem(20px);
+            }
+        }
+    }
+
+    a {
+        color: $body_color;
+
+        &:hover {
+            color: $hover_color;
+        }
+    }
+}
+
+//== ratting
+.star-rating {
+    display: flex;
+    vertical-align: middle;
+    width: 5.2em;
+    color: $primary_color;
+    overflow: hidden;
+    position: relative;
+    line-height: 1;
+    font-family: $icon_font;
+    font-size: 10px;
+    @include transition(all .3s ease);
+
+    &:before {
+        content: '\eb47\eb47\eb47\eb47\eb47';
+        color: $disable_color;
+        letter-spacing: 0.4px;
+    }
+
+    span {
+        overflow: hidden;
+        float: left;
+        top: 0;
+        left: 0;
+        position: absolute;
+        padding-top: 1.7em;
+
+        &:before {
+            content: '\eb47\eb47\eb47\eb47\eb47';
+            position: absolute;
+            top: 0;
+            left: 0;
+            letter-spacing: 0.4px;
+        }
+    }
+
+    &:hover {
+        color: $hover_color;
+    }
+}
+
+//== Product list
+ul.product_list_widget {
+    li {
+        line-height: normal;
+        position: relative;
+
+        &:not(:last-child) {
+            margin-bottom: 15px;
+        }
+
+        img {
+            float: #{$left};
+            width: 50px;
+            height: 50px;
+            overflow: hidden;
+            margin-#{$left}: 0;
+            margin-#{$right}: 15px;
+        }
+
+        a {
+            display: block;
+            line-height: 1.428;
+            font-size: 13px;
+            margin-bottom: 7px;
+
+            &:hover {
+                color: $hover_color;
+            }
+        }
+
+        .star-rating {
+            float: right;
+            margin: 3px 0;
+
+            &:after {
+                content: '';
+                display: block;
+                clear: both;
+            }
+        }
+
+        .reviewer {
+            font-size: rem(12px);
+        }
+
+        .woocommerce-Price-amount {
+            font-family: $heading_font;
+            color: $highlight_color;
+        }
+
+        del {
+            top: 2px;
+            margin-left: rem(5px);
+
+            .woocommerce-Price-amount {
+                font-size: rem(12px);
+                color: $heading_color;
+            }
+        }
+
+        ins {
+            float: left;
+            text-decoration: none;
+        }
+    }
+}
+
+
+//== General filter price woocomerce + wolfo
+.widget {
+    .ui-widget {
+        &.ui-slider {
+            position: relative;
+            width: calc(100% - 17px);
+            height: 5px;
+            background-color: $border_color;
+            margin: rem(0 auto 20px);
+            @include border-radius(0);
+            font-size: 0;
+        }
+
+        .ui-slider {
+            &-range {
+                position: absolute;
+                height: 5px;
+                background-color: $primary_color;
+            }
+
+            &-handle {
+                display: inline-block;
+                width: 17px;
+                height: 17px;
+                margin-left: -8.5px;
+                border: 2px solid $primary_color;
+                background-color: $light_scheme;
+                cursor: pointer;
+                @include position(absolute, -6px);
+
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+    }
+
+    .price_slider_amount {
+        .price_label {
+            text-align: #{$left};
+            color: $disable_color;
+            font-size: rem(14px);
+        }
+
+        button.button {
+            display: none;
+        }
+    }
+}
+
+//== [ Bingo widget ]
+[class*='bin-widget'] {
+    .grey {
+        background: #f9f9f9;
+        padding: rem(19px 25px 16px);
+    }
+
+    .has-border {
+        border: 1px solid $border_color;
+    }
+}
+
+@media (max-width: $screen-md) {
+    .widget {
+        &-title {
+            margin-bottom: rem(15px);
+        }
+    }
+}
+
+.widget_block {
+    a {
+        text-decoration: underline;
+    }
+}
