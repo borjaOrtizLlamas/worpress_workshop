@@ -2,6 +2,7 @@ def variablesDef = null
 
 
 pipeline {
+    agent any     
    	stages {
 
         stage('build docker') {
