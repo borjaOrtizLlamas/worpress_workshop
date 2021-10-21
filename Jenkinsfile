@@ -29,7 +29,7 @@ pipeline {
             }
         }
 
-        stage('deploy') {
+        stage('rolling update') {
             steps {
                 sh "aws ecs update-service --cluster WorkshopCluster --service worpress_workshop_service --task-definition WordPress"                
             }
